@@ -2,6 +2,7 @@ import React from "react";
 import DashboardContainer from "../containers/Dashboard";
 import { auth, db } from "../firebase";
 import firebase from "../firebase";
+import GameContainer from "./GameContainer";
 
 class Home extends React.Component {
   constructor(props) {
@@ -43,6 +44,11 @@ class Home extends React.Component {
             .then(usr => {
               console.log("usr");
               console.log(usr.uid);
+              db.collection("users")
+                .doc(uid)
+                .set({
+                  from: "anonymous"
+                });
             })
             .catch(function(error) {
               // Handle Errors here.
@@ -115,13 +121,15 @@ class Home extends React.Component {
           disabled={this.state.showGoogleButton}
         >
           Start the Game
-        </button> */}
-        <DashboardContainer />
-        {/* <h1>is {this.state.isAnonymous}</h1>
+        </button>
+        {/* <DashboardContainer /> */}
+        <h1>is {this.state.isAnonymous}</h1>
         <h1>{this.state.uid}</h1>
         {this.state.showGoogleButton ? (
           <button onClick={this.handleGoogleLogin}>Log in with Google</button>
-        ) : null} */}
+        ) : null}
+
+        <GameContainer />
       </div>
     );
   }
