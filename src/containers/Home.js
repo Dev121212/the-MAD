@@ -110,18 +110,18 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <button
+        {/* <button
           onClick={this.signInAnonymous}
           disabled={this.state.showGoogleButton}
         >
           Start the Game
-        </button>
-        {/* <DashboardContainer /> */}
-        <h1>is {this.state.isAnonymous}</h1>
+        </button> */}
+        <DashboardContainer />
+        {/* <h1>is {this.state.isAnonymous}</h1>
         <h1>{this.state.uid}</h1>
         {this.state.showGoogleButton ? (
           <button onClick={this.handleGoogleLogin}>Log in with Google</button>
-        ) : null}
+        ) : null} */}
       </div>
     );
   }
