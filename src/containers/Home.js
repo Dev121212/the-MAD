@@ -2,6 +2,7 @@ import React from "react";
 import DashboardContainer from "../containers/Dashboard";
 import { auth, db } from "../firebase";
 import firebase from '../firebase';
+import GameContainer from "./GameContainer";
 
 
 class Home extends React.Component {
@@ -23,7 +24,6 @@ class Home extends React.Component {
       clickCount: dis.state.clickCount + 1
     })
 
-
     if(this.state.clickCount < 2){
       auth.onAuthStateChanged(function (user) {
         if (user) {
@@ -34,9 +34,6 @@ class Home extends React.Component {
             isAnonymous: isAnonymous,
             uid: uid
           })
-          db.collection('users').doc(uid).set({
-            from: 'anonymous'
-          })
         } else {
           console.log('not logged in');
           auth
@@ -44,6 +41,9 @@ class Home extends React.Component {
             .then(usr => {
               console.log("usr");
               console.log(usr.uid);
+              db.collection('users').doc(uid).set({
+                from: 'anonymous'
+              })
             })
             .catch(function (error) {
               // Handle Errors here.
@@ -113,6 +113,8 @@ class Home extends React.Component {
           {this.state.uid}
         </h1>
         {this.state.showGoogleButton ? <button onClick={this.handleGoogleLogin}>Log in with Google</button> : null}
+
+      <GameContainer />
       </div>
     );
   }

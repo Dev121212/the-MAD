@@ -4,7 +4,6 @@ import "./App.css";
 import Home from "./containers/Home";
 
 class App extends React.Component {
-  componentDidMount() {}
 
   render() {
     return (
