@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardContainer from "../containers/Dashboard";
 
-class DashboardContainer extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class DashboardContainer extends React.Component {
   }
 }
 
-export default DashboardContainer;
+export default Home;

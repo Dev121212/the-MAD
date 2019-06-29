@@ -28,8 +28,25 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <div>The MAD</div>
-        <div>The MAD</div>
+        <div
+          style={{ display: "flex", flexWrap: "wrap", backgroundColor: "red" }}
+        >
+          {this.state.allData.map(data => {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  height: " 200px",
+                  width: " 200px",
+                  padding: "20px",
+                  fontSize: "80px"
+                }}
+              >
+                {data.name}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
